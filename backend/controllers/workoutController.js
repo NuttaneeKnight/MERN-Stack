@@ -1,4 +1,5 @@
 const Workout = require("../models/workoutModel");
+const mongoose = require("mongoose");
 
 // GET all workouts
 const getWorkouts = async (req, res) => {
@@ -12,6 +13,10 @@ const getWorkouts = async (req, res) => {
 const getWorkout = async (req, res) => {
   const { id } = req.params;
 
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    // had to type id or the app will crash
+    return res.status(404).json({ error: "No such workout" });
+  }
   const workout = await Workout.findById(id);
 
   if (!workout) {
