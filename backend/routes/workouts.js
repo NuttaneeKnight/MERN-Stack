@@ -2,21 +2,21 @@ const express = require("express");
 
 const router = express.Router();
 
-//Get all workouts
+// GET all workouts
 router.get("/", (req, res) => {
   res.json({
     message: "GET all workouts",
   });
 });
 
-//GET a single workout
+// GET a single workout
 router.get("/:id", (res, req) => {
   res.json({
     message: "GET a single workout",
   });
 });
 
-//POST a new workout
+// POST a new workout
 router.post("/", (req, res) => {
   res.json({
     message: "POST a new workout",
