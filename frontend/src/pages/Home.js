@@ -19,7 +19,7 @@ const Home = () => {
       //use the global context instead of just the local
     };
     fetchWorkouts();
-  }, []);
+  }, [dispatch]);
   return (
     <div className="home">
       <div className="workouts">
