@@ -1,7 +1,19 @@
-import { createContext } from "react";
+import { createContext, useReducer } from "react";
 
 export const WorkoutsContext = createContext();
 
+export const workoutsReducer = (state, action) => {
+  
+}
+
 export const WorkoutsContextProvider = ({ children }) => {
-  return <WorkoutsContext.Provider>{children}</WorkoutsContext.Provider>;
+  const [state, dispatch] = useReducer(workoutsReducer, {
+    workouts: null
+  })
+
+  return (
+    <WorkoutsContext.Provider value={{workouts: []}}>
+      {children}
+    </WorkoutsContext.Provider>
+    )
 };
