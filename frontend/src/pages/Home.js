@@ -16,6 +16,7 @@ const Home = () => {
       if (response.ok) {
         dispatch({ type: "SET_WORKOUT", payload: json });
       }
+      //use the global context instead of just the local
     };
     fetchWorkouts();
   }, []);
